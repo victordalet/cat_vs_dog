@@ -1,0 +1,23 @@
+html {
+    overflow: hidden;
+}
+
+img {
+    width: 175px;
+    height: 175px;
+    border-radius: 5px;
+    margin: 20px;
+    box-shadow: 2px 2px 20px #000, -2px -2px 20px #fff;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+img:hover {
+    box-shadow: none;
+}
+
+.container-data {
+    width: 100vw;
+    display: inline-flex;
+    overflow-x: scroll;
+}
