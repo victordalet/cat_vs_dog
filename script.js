@@ -28,10 +28,13 @@ function train(inputs, target) {
 setTimeout(() => {
     for (let i = 0 ; i < 200 ; i++) {
         for (let j = 1 ; j < 20 ; j++) {
-            train(imageToMatrix("cat"+j), 0);
+            train(imageToMatrix("cat"+j), 1);
         }
         for (let j = 1 ; j < 20 ; j++) {
-            train(imageToMatrix("dog"+j), 1);
+            train(imageToMatrix("dog"+j), 0);
+        }
+        for (let j = 1 ; j < 20 ; j++) {
+            train(imageToMatrix("pero"+j), 0);
         }
     }
 
@@ -39,15 +42,47 @@ setTimeout(() => {
     var p = predict(imageToMatrix("predict"));
     console.log(p);
 
-    if (p >0.5) {
-        console.log("C'est un chien");
-        document.getElementById("write").innerHTML = "un chien.";
+    if (p === 0) {
+        console.log("C'est un chien ou  un perroquet");
+        document.getElementById("write").innerHTML = "un chien ou un perroquet.";
         document.getElementById("write2").innerHTML = p*100;
+
+        weights = [];
+        for (let i = 0; i < n; i++) {
+            weights.push(Math.random());
+        }
+
+        for (let i = 0 ; i < 200 ; i++) {
+            for (let j = 1 ; j < 20 ; j++) {
+                train(imageToMatrix("dog"+j), 0);
+            }
+            for (let j = 1 ; j < 20 ; j++) {
+                train(imageToMatrix("pero"+j), 1);
+            }
+        }
+
+        p = predict(imageToMatrix("predict"));
+        console.log(p);
+
+        if (p === 0) {
+            console.log("C'est un chien");
+            document.getElementById("write").innerHTML = "un chien.";
+            document.getElementById("write2").innerHTML = 100 - p*100;
+        }
+
+        if (p === 1) {
+            console.log("C'est un pero");
+            document.getElementById("write").innerHTML = "un perroquet.";
+            document.getElementById("write2").innerHTML = p*100;
+        }
+
+
+
     }
-    else {
+    else if (p === 1) {
         console.log("C'est un chat");
         document.getElementById("write").innerHTML = "un chat.";
-        document.getElementById("write2").innerHTML = 100 - p*100;
+        document.getElementById("write2").innerHTML = p*100;
     }
 
 

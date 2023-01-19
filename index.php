@@ -14,11 +14,14 @@
         for ($i=1 ; $i<20 ; $i++) {
             echo "<img id='dog".$i."' src='assets/chien".$i.".png'>";
         }
+        for ($i=1 ; $i<20 ; $i++) {
+            echo "<img id='pero".$i."' src='assets/pero".$i.".png'>";
+        }
     ?>
 </div>
 <br>
 <h1>Prediction : </h1>
-<img id="predict" src="assets/chat8.png">
+<img id="predict" src="assets/pero20.png">
 <h2>Cette image est <span id="write"></span></h2>
 <h3>Présition : <span id="write2"></span>%</h3>
 </body>
