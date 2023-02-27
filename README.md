@@ -5,4 +5,4 @@ This machine learning from scratch program in js allows to detect if it is an im
 Open your php serveur : php -S localhost:8888 <br>
 Go to your web browser and type localhost:8888 <br>
 In index.php at line 24 put the file of the image to predict <br><br>
-![](https://github.com/victordalet/cnn_js/blob/main/pres.png)
+![](https://cdn.discordapp.com/attachments/1027174980091396146/1079817057853509682/image.png)
